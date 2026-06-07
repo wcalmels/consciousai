@@ -25,7 +25,7 @@ from pathlib import Path
 # Import ConsciousAI v3.0
 import sys
 sys.path.insert(0, os.path.dirname(__file__))
-from consciousai_v3_integrated import (
+from src.core.engine import (
     IntegratedConsciousnessEngine,
     IntegratedConfig,
     ConsciousnessLevel,
