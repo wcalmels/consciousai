@@ -1,0 +1,9 @@
+# Core (required)
+numpy>=1.20.0
+
+# Performance (highly recommended)
+numba>=0.56.0
+scipy>=1.7.0
+
+# Security (optional)
+# networkx>=2.6  # Not required in v3.0 cleaned version
