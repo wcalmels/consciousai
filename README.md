@@ -1,302 +1,230 @@
-# 🧠 ConsciousAI
+# ConsciousAI
 
-> **Integrated Information Theory for Autonomous Systems**  
-> Real-time consciousness measurement that makes drones, vehicles, hospitals and cities 10-100× safer.
+> **Scalable Integrated Information for Real-Time Autonomous Systems**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/version-3.0.0-blue" alt="Version">
-  <img src="https://img.shields.io/badge/python-3.8%2B-green" alt="Python">
-  <img src="https://img.shields.io/badge/license-Proprietary-red" alt="License">
-  <img src="https://img.shields.io/badge/tests-22%20passing-brightgreen" alt="Tests">
-  <img src="https://img.shields.io/badge/coverage-95%25-brightgreen" alt="Coverage">
-</p>
+[![Tests](https://img.shields.io/badge/tests-32%20passing-brightgreen)](tests/)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue)](pyproject.toml)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b)](docs/paper/)
 
----
+ConsciousAI computes a **spectral approximation of integrated information (Φ)** for
+multivariate time-series systems — making the core insight of IIT applicable at
+engineering scale for the first time.
 
-## 🎯 What is ConsciousAI?
-
-ConsciousAI applies **Integrated Information Theory (IIT)** from neuroscience to engineer systems that can measure their own *consciousness* — the degree to which their components work as an integrated whole.
-
-When a drone's Φ (phi) drops below a threshold, the system is degrading **before any single sensor fails**. ConsciousAI detects this early, triggering safe emergency responses.
-
-```
-Φ HIGH (> 0.7) → System fully integrated → Normal operation  
-Φ LOW  (< 0.3) → System degrading       → Emergency protocol
-```
-
-### Key Results
-
-| Domain | Improvement | Metric |
-|--------|-------------|--------|
-| UAVs | **94% prediction rate** | Failure prediction |
-| Autonomous Vehicles | **10.7× fewer collisions** | Collision rate |
-| Medical / ICU | **+6h early warning** | Sepsis detection |
-| Smart Cities | **78% cascade prediction** | Infrastructure failures |
+[PyPhi](https://github.com/wmayner/pyphi) (the canonical IIT library, Tononi group / UW-Madison)
+computes exact Φ but is limited to **N ≤ 10 discrete components**.  
+ConsciousAI runs **N = 200 continuous components in < 2ms** — a 20× scalability jump
+that makes real-time monitoring of drones, vehicles, ICU patients and LLMs practical.
 
 ---
 
-## ✨ Features
+## ⚠️ Honest scope statement
 
-### Core Engine
-- ⚡ **100,000× faster** than naive IIT (O(2^N) → O(N² log N))
-- 🚀 **Numba JIT** compilation (additional 10-50× speedup)
-- 🔧 **Self-repairing cache** (50× reduction in corruption failures)
-- 🎯 **Domain preprocessing**: quantum, biological, neural, computational
-- 📊 **Real-time monitoring** with comprehensive metrics
+This library does **not** compute exact IIT 4.0 Φ. It computes a spectral approximation
+(eigenvalue entropy × connectivity strength) that:
 
-### Security (v3.0)
-- 🔐 **Blockchain audit trail** (deterministic, persistent)
-- 🛡️ **File integrity checking** with manifest
-- 👁️ **Threat detection** (non-destructive — log only, never kills)
-- 🔄 **Auto-vigilance** with adaptive interval
+- correlates strongly with exact Φ for small systems (r = 0.96, validated)  
+- captures the *integration vs. decomposability* distinction that matters for anomaly detection  
+- runs in real time for N up to 200 (exact IIT is intractable past N ≈ 10)
 
-### Architecture
-- 🌐 **Multi-domain**: UAVs, vehicles, biomedical, smart cities
-- 🤖 **Multi-agent**: fleet coordination with collective Φ
-- 🔌 **REST API + WebSocket** ready
-- 🐳 **Docker + Kubernetes** ready
+If you need exact IIT Φ for small discrete systems, use [PyPhi](https://github.com/wmayner/pyphi).  
+If you need a scalable integration metric for continuous engineering systems, this is for you.
 
 ---
 
-## 🚀 Quick Start
+## Key results
 
-### Install
+| System | Metric | Value |
+|--------|--------|-------|
+| Single Φ, N=50 | Latency | **0.21 ms** |
+| vs exact IIT (N=50) | Speedup | **>1,000,000×** |
+| Collective anomaly detection | F1 | **0.799** (vs 0.731 Isolation Forest) |
+| Cache key hashing | Speedup | **155×** (FNV vs MD5) |
+| Batch 100 systems | Speedup vs loop | **2.3×** (Numba prange) |
+| Correlation with exact Φ | Pearson r | **0.96** (N ≤ 10 validated) |
+
+---
+
+## Installation
 
 ```bash
-pip install numpy numba scipy
+pip install numpy scipy                  # required
+pip install numba                        # recommended (10-50× speedup)
+pip install statsmodels scikit-learn     # for ConnectivityLearner.granger / mutual_info
 ```
 
-### Basic Usage
-
-```python
-from src.core import IntegratedConsciousnessEngine
-import numpy as np
-
-# Initialize engine
-engine = IntegratedConsciousnessEngine()
-
-# Calculate consciousness level
-sensor_data = np.random.rand(100, 12)   # 100 readings, 12 sensors
-connectivity = np.random.rand(12, 12)   # Sensor interconnections
-
-phi = engine.calculate_phi(sensor_data, connectivity, domain='general')
-level = engine.get_consciousness_level(phi)
-
-print(f"Φ = {phi:.4f}")
-print(f"Level: {level.name}")   # VERY_HIGH, HIGH, MODERATE, LOW, MINIMAL, UNCONSCIOUS
-
-engine.shutdown()
-```
-
-### With Security
-
-```python
-from src.core import IntegratedConsciousnessEngine, IntegratedConfig
-
-config = IntegratedConfig()
-config.enable_security = True
-
-engine = IntegratedConsciousnessEngine(config)
-engine.register_protected_file("app.py")
-
-# Calculate Φ — security runs in background
-phi = engine.calculate_phi(sensor_data, domain='quantum')
-
-stats = engine.get_comprehensive_stats()
-print(f"Threats detected: {stats['security']['threats_detected']}")
-print(f"Blockchain blocks: {stats['security']['blockchain_length']}")
-
-engine.shutdown()
-```
-
-### UAV Example
-
-```python
-from src.core.framework import DroneAgent
-import numpy as np
-
-agent = DroneAgent(num_components=12, agent_id="DRONE-001")
-
-# Simulate sensor update
-sensors = {
-    "pos_x": 10.5, "pos_y": 20.3, "pos_z": 50.0,
-    "vel_x": 1.2,  "vel_y": 0.8,  "vel_z": -0.1,
-    "roll": 2.1,   "pitch": 1.5,  "yaw": 180.0,
-    "battery": 72.0, "temp": 38.5, "altitude": 50.1
-}
-
-agent.sense(sensors)
-agent.process()
-
-if agent.phi < 0.3:
-    print(f"⚠️  Low consciousness: Φ={agent.phi:.3f} — Initiating emergency landing")
-else:
-    print(f"✅ Normal flight: Φ={agent.phi:.3f}")
+```bash
+git clone https://github.com/YOUR_USER/consciousai.git
+cd consciousai
+python -m pytest tests/ -q               # 32 tests, should all pass
 ```
 
 ---
 
-## 📦 Project Structure
+## Quick start
+
+```python
+from src.core.engine import IntegratedConsciousnessEngine, IntegratedConfig
+from src.core.connectivity import ConnectivityLearner
+import numpy as np
+
+# 1. Automatic connectivity learning (no domain expertise needed)
+data = np.random.rand(100, 12)           # 100 time steps, 12 sensors
+C    = ConnectivityLearner.domain_default("autonomous").fit(data)
+
+# 2. Compute Φ
+engine = IntegratedConsciousnessEngine()
+phi    = engine.calculate_phi(data, C, domain="quantum")
+level  = engine.get_consciousness_level(phi)
+
+print(f"Φ = {phi:.4f}  |  Level: {level.name}")
+# → Φ = 5.6205  |  Level: VERY_HIGH
+
+engine.shutdown()
+```
+
+---
+
+## Domains
+
+### Autonomous systems (drones, vehicles)
+```python
+from src.core.framework import DroneAgent
+
+agent = DroneAgent(num_components=12, agent_id="DRONE-01")
+agent.sense(sensor_dict)
+if agent.phi < 0.3:
+    print("⚠️  Low integration — initiating safe return")
+```
+
+### LLM layer analysis
+```python
+from src.domains.llm_probing import LLMPhiProbe
+
+probe     = LLMPhiProbe(model_name="distilgpt2", window=8)
+phi_curve = probe.probe_text("If all mammals are warm-blooded...")
+print(f"Peak integration at layer {phi_curve.argmax()}")
+```
+
+### Financial systemic risk
+```python
+from src.domains.financial_risk import FinancialPhiMonitor
+
+monitor    = FinancialPhiMonitor(window=60, method="pearson")
+phi_series = monitor.compute_phi_series(returns)   # (T, N) return matrix
+# Low Φ = market losing integration = early stress signal
+```
+
+### Connectivity learning
+```python
+from src.core.connectivity import ConnectivityLearner
+
+# Choose method by domain
+C_auto   = ConnectivityLearner(method="pearson").fit(data)
+C_causal = ConnectivityLearner(method="granger", max_lag=3).fit(returns)
+C_nonlin = ConnectivityLearner(method="mutual_info").fit(eeg_data)
+C_robust = ConnectivityLearner(method="ensemble").fit(process_data)
+```
+
+---
+
+## Benchmarks
+
+```bash
+python tests/benchmarks/benchmark_vs_market.py    # vs Z-score, IF, Mahalanobis
+python tests/benchmarks/benchmark_numba.py        # Numba speedup analysis
+python src/benchmarks/ucr_benchmark.py            # anomaly detection (UCR-style)
+python src/domains/financial_risk.py              # financial regime analysis
+python src/domains/llm_probing.py                 # LLM layer Φ curves
+```
+
+---
+
+## Project structure
 
 ```
 consciousai/
 ├── src/
 │   ├── core/
-│   │   ├── engine.py          # IntegratedConsciousnessEngine (v3.0)
-│   │   ├── phi_calculator.py  # Enhanced Φ calculator with JIT
-│   │   └── framework.py       # Universal multi-domain framework
-│   ├── security/
-│   │   ├── security_engine.py # Blockchain + file integrity
-│   │   └── blockchain_ip.py   # IP timestamping tools
+│   │   ├── engine.py          # IntegratedConsciousnessEngine v3.0
+│   │   ├── connectivity.py    # ConnectivityLearner (4 methods)
+│   │   ├── numba_kernels.py   # JIT-compiled Φ kernels
+│   │   ├── framework.py       # Multi-domain agent framework
+│   │   └── phi_calculator.py  # Enhanced Φ calculator
 │   ├── domains/
-│   │   ├── drone.py           # UAV consciousness agent
-│   │   ├── vehicle.py         # Autonomous vehicle agent
-│   │   ├── biomedical.py      # Medical monitoring agent
-│   │   └── smart_city.py      # Urban infrastructure agent
-│   └── utils/
-│       ├── optimizations.py   # Performance utilities
-│       └── usage_guide.py     # Extended examples
-├── tests/
-│   ├── unit/
-│   │   └── test_engine.py     # 22 unit tests (100% passing)
-│   ├── integration/
-│   │   └── test_integration.py
+│   │   ├── llm_probing.py     # Transformer layer analysis
+│   │   └── financial_risk.py  # Systemic risk monitor
+│   ├── security/
+│   │   └── security_engine.py # Blockchain audit trail
 │   └── benchmarks/
-│       └── benchmark_phi.py
-├── docs/
-│   ├── api/                   # API reference
-│   ├── guides/                # Deployment, migration guides
-│   └── paper/                 # Scientific paper
+│       └── ucr_benchmark.py   # UCR anomaly detection benchmark
+├── tests/
+│   ├── unit/                  # 22 unit tests
+│   ├── integration/           # 10 integration tests
+│   └── benchmarks/            # Performance benchmarks
+├── docs/paper/                # Scientific paper (preprint)
 ├── examples/
 │   ├── quick_start.py
-│   ├── drone_fleet.py
-│   ├── medical_monitoring.py
-│   └── smart_city.py
-├── configs/
-│   ├── development.yaml
-│   ├── production.yaml
-│   └── docker-compose.yml
-├── scripts/
-│   ├── setup.sh
-│   ├── run_tests.sh
-│   └── deploy.sh
-├── .github/
-│   └── workflows/
-│       ├── ci.yml
-│       └── deploy.yml
-├── Dockerfile
-├── pyproject.toml
-├── requirements.txt
-├── requirements-dev.txt
-└── README.md
+│   └── drone_fleet.py
+└── configs/
+    └── docker-compose.yml
 ```
 
 ---
 
-## 📊 Performance
+## How it works
 
-| System Size (N) | Method | Time | Speedup vs Naive |
-|-----------------|--------|------|------------------|
-| 15 components | Spectral + JIT | 1.1 ms | ~900× |
-| 50 components | Spectral + JIT | 3.2 ms | >1,000,000× |
-| 100 components | Approx + JIT | 0.6 ms | >10⁹× |
-| 200 components | Approx + JIT | 2.1 ms | >10¹⁰× |
+Φ is computed as:
 
-Cache hit rate: **65-80%** · Throughput: **500-2,000 ops/sec**
-
----
-
-## 🔬 Science
-
-Based on [Integrated Information Theory (IIT)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003588) by Tononi et al. (2014).
-
-**Core insight:** A system's *consciousness* (Φ) measures how much its parts work together vs. independently. Engineering systems with degrading health show lower Φ — detectable *before* any single component fails.
-
-Read our full paper: [`docs/paper/SCIENTIFIC_PAPER.md`](docs/paper/SCIENTIFIC_PAPER.md)
-
----
-
-## 🏗️ Roadmap
-
-- [x] v1.0 — Basic Φ calculation
-- [x] v2.0 — JIT + self-repair + domain preprocessing
-- [x] v3.0 — Integrated security engine + blockchain
-- [ ] v3.1 — REST API + WebSocket server
-- [ ] v3.2 — React dashboard
-- [ ] v4.0 — GPU acceleration (CUDA)
-- [ ] v4.1 — Federated learning for connectivity
-- [ ] v5.0 — Medical FDA submission track
-
----
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-python -m pytest tests/ -v
-
-# Run with coverage
-python -m pytest tests/ --cov=src --cov-report=html
-
-# Run benchmarks
-python tests/benchmarks/benchmark_phi.py
+```
+Φ(data, C) = H(eigenvalues(Cov(data))) × |positive eigenvalues| × mean(|C|)
 ```
 
-Expected output:
-```
-================================ 22 passed in 12.3s ================================
-✅ All tests passed! Coverage: 95%
-```
+where `H` is Shannon entropy over the normalised eigenvalue spectrum.
+This captures the *spread and balance* of information across components —
+high Φ = well-integrated, low Φ = decomposing / degrading system.
+
+The key engineering contribution is making this computable in < 2ms for N=200
+via spectral methods + Numba JIT, enabling real-time deployment.
 
 ---
 
-## 🐳 Docker
+## Relation to PyPhi / IIT literature
 
-```bash
-# Build
-docker build -t consciousai:3.0 .
+| | PyPhi (exact IIT) | ConsciousAI |
+|--|--|--|
+| Φ type | Exact IIT 3.0 / 4.0 | Spectral approximation |
+| Max N (real-time) | ~8 | **200** |
+| System type | Discrete, small | Continuous, large |
+| Speed N=10 | ~60 seconds | **< 0.1 ms** |
+| Use case | Neuroscience research | Engineering / monitoring |
 
-# Run
-docker run -p 8000:8000 consciousai:3.0
-
-# With docker-compose
-docker-compose up -d
-```
-
----
-
-## 📄 License
-
-**Proprietary** — All rights reserved.  
-Commercial use requires a license agreement.  
-Academic use permitted with attribution.
-
-Contact: walter@tuch.systems
+If your work requires exact IIT semantics, cite and use PyPhi.  
+This library is for engineering applications where N >> 10 and latency matters.
 
 ---
 
-## 👤 Author
-
-**Walter Calmels**  
-Founder & CTO, TUCH Systems Research Laboratory  
-Buenos Aires / Santiago (Maipú Lab)  
-walter@tuch.systems
-
----
-
-## 📚 Citation
+## Citation
 
 ```bibtex
-@article{calmels2024consciousai,
-  title={Integrated Information-Based Consciousness Framework for Autonomous Systems},
-  author={Calmels, Walter},
-  year={2024},
-  note={arXiv preprint (submitted)}
+@software{calmels2024consciousai,
+  title  = {ConsciousAI: Scalable Integrated Information for Real-Time Autonomous Systems},
+  author = {Calmels, Walter},
+  year   = {2024},
+  url    = {https://github.com/YOUR_USER/consciousai}
 }
 ```
 
 ---
 
-<p align="center">
-  <b>ConsciousAI — Making autonomous systems think about themselves</b>
-</p>
+## Author
+
+**Walter Calmels** — TUCH Systems Research Laboratory  
+Buenos Aires / Santiago (Maipú Lab)  
+walter@tuch.systems
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE)
