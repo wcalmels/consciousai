@@ -220,8 +220,8 @@ This library is for engineering applications where N >> 10 and latency matters.
 ## Author
 
 **Walter Calmels** — TUCH Systems Research Laboratory  
-Buenos Aires / Santiago (Maipú Lab)  
-walter@tuch.systems
+Santiago, Chile  
+wcalmels@phi47.cl
 
 ---
 
@@ -238,8 +238,8 @@ MIT — see [LICENSE](LICENSE)
 | Use case | License |
 |----------|---------|
 | Academic research, education, personal projects | ✅ Free — [LICENSE A](LICENSE) |
-| Commercial products, SaaS, revenue-generating deployments | 💼 Contact walter@tuch.systems |
+| Commercial products, SaaS, revenue-generating deployments | 💼 Contact wcalmels@phi47.cl |
 
 Attribution required in all cases. See [LICENSE](LICENSE) for full terms.
 
-© 2024-2025 Walter Calmels — [TUCH Systems Research Laboratory](https://tuch.systems)
+© 2025-2026 Walter Calmels — [TUCH Systems Research Laboratory](https://tuch.systems)
