@@ -1,16 +1,63 @@
-MIT License
+ConsciousAI — Dual License
 
-Copyright (c) 2024 Walter Calmels — TUCH Systems Research Laboratory
+Copyright (c) 2024-2025 Walter Calmels — TUCH Systems Research Laboratory
+All rights reserved.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LICENSE A — Non-Commercial Research License
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this software and associated documentation files (the "Software"), to use,
+copy, modify, and distribute the Software solely for:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+  (a) Academic research and education
+  (b) Personal non-commercial projects
+  (c) Evaluation purposes (maximum 30 days in production environments)
+
+Subject to the following conditions:
+
+  1. The above copyright notice and this permission notice shall be included
+     in all copies or substantial portions of the Software.
+
+  2. Any publication, paper, or presentation that uses or builds upon this
+     Software must cite:
+
+       Calmels, W. (2024). ConsciousAI: Scalable Spectral Approximation of
+       Integrated Information for Real-Time Engineering Systems.
+       TUCH Systems Research Laboratory.
+       https://github.com/wcalmels/consciousai
+
+  3. Derivative works for non-commercial purposes must retain this license
+     and clearly state modifications made.
+
+  4. The Software may NOT be used under this license for:
+     - Commercial products or services
+     - Revenue-generating deployments
+     - Integration into proprietary commercial systems
+     - SaaS, PaaS, or hosted services offered to third parties
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LICENSE B — Commercial License
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For any commercial use, including but not limited to:
+
+  - Integration into commercial products or services
+  - Use in production systems generating revenue
+  - Offering as a hosted or managed service
+  - OEM integration or redistribution
+  - Any use beyond the Non-Commercial Research License above
+
+A separate commercial license is required from TUCH Systems Research
+Laboratory.
+
+Contact: walter@tuch.systems
+Subject: "ConsciousAI Commercial License Inquiry"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DISCLAIMER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,3 +66,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INTELLECTUAL PROPERTY NOTICE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The following elements are proprietary to TUCH Systems Research Laboratory
+and are protected as trade secrets in addition to this license:
+
+  - Specific hyperparameters and calibration values for production deployments
+  - ConnectivityLearner training procedures and domain-specific configurations
+  - AdaptiveThreshold seasonal profile models for specific industrial domains
+  - Benchmark results and evaluation protocols on proprietary datasets
+
+Publication of the algorithms and their mathematical foundations does not
+constitute a waiver of trade secret protection for the above elements.
+
+For patent information: walter@tuch.systems

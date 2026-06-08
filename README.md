@@ -4,7 +4,7 @@
 
 [![Tests](https://img.shields.io/badge/tests-32%20passing-brightgreen)](tests/)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](pyproject.toml)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License](https://img.shields.io/badge/license-Dual%20License-orange)](LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b)](docs/paper/)
 
 ConsciousAI computes a **spectral approximation of integrated information (Φ)** for
@@ -228,3 +228,18 @@ walter@tuch.systems
 ## License
 
 MIT — see [LICENSE](LICENSE)
+
+---
+
+## ⚖️ License
+
+**Dual License — Non-Commercial / Commercial**
+
+| Use case | License |
+|----------|---------|
+| Academic research, education, personal projects | ✅ Free — [LICENSE A](LICENSE) |
+| Commercial products, SaaS, revenue-generating deployments | 💼 Contact walter@tuch.systems |
+
+Attribution required in all cases. See [LICENSE](LICENSE) for full terms.
+
+© 2024-2025 Walter Calmels — [TUCH Systems Research Laboratory](https://tuch.systems)
