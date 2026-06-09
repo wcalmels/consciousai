@@ -5,7 +5,8 @@
 [![Tests](https://img.shields.io/badge/tests-32%20passing-brightgreen)](tests/)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue)](pyproject.toml)
 [![License](https://img.shields.io/badge/license-Dual%20License-orange)](LICENSE)
-[![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b)](docs/paper/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20602077.svg)](https://doi.org/10.5281/zenodo.20602077)
+[![arXiv](https://zenodo.org/badge/DOI/10.5281/zenodo.20602077.svg)](docs/paper/)
 
 ConsciousAI computes a **spectral approximation of integrated information (Φ)** for
 multivariate time-series systems — making the core insight of IIT applicable at
@@ -207,11 +208,15 @@ This library is for engineering applications where N >> 10 and latency matters.
 ## Citation
 
 ```bibtex
-@software{calmels2024consciousai,
-  title  = {ConsciousAI: Scalable Integrated Information for Real-Time Autonomous Systems},
-  author = {Calmels, Walter},
-  year   = {2024},
-  url    = {https://github.com/YOUR_USER/consciousai}
+@software{calmels2025consciousai,
+  title   = {ConsciousAI: Scalable Spectral Approximation of Integrated Information
+             for Real-Time Engineering Systems},
+  author  = {Calmels, Walter},
+  year    = {2025},
+  doi     = {10.5281/zenodo.20602077},
+  url     = {https://doi.org/10.5281/zenodo.20602077},
+  version = {3.0.0},
+  publisher = {Zenodo}
 }
 ```
 

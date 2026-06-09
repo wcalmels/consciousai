@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "ConsciousAI: Scalable Spectral Approximation of Integrated Information for Real-Time Engineering Systems"
+authors:
+  - family-names: "Calmels"
+    given-names: "Walter"
+    email: "walter@tuch.systems"
+    affiliation: "TUCH Systems Research Laboratory"
+version: "3.0.0"
+doi: 10.5281/zenodo.20602077
+date-released: "2025-06-08"
+url: "https://github.com/wcalmels/consciousai"
+repository-code: "https://github.com/wcalmels/consciousai"
+license: "LicenseRef-ConsciousAI-DualLicense"
+abstract: >
+  ConsciousAI computes a spectral approximation of integrated information (Φ)
+  for continuous multivariate time-series systems, enabling real-time monitoring
+  of autonomous systems, biomedical devices, financial markets, and LLMs.
+  Reduces O(2^N) exact IIT complexity to O(N² log N), achieving sub-millisecond
+  computation for N=200 components — a 20x scalability advance over PyPhi.
+keywords:
+  - integrated-information-theory
+  - anomaly-detection
+  - autonomous-systems
+  - time-series
+  - numba
+  - python
+  - real-time
+  - consciousness
+  - IIT
+references:
+  - type: article
+    title: "PyPhi: A toolbox for integrated information theory"
+    authors:
+      - family-names: "Mayner"
+        given-names: "William G. P."
+    journal: "PLOS Computational Biology"
+    volume: 14
+    issue: 7
+    year: 2018
+    doi: 10.1371/journal.pcbi.1006343
